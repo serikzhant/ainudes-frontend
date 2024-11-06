@@ -1,7 +1,5 @@
-<template>
-  <HelloWorld />
-</template>
+<script setup></script>
 
-<script setup>
-  //
-</script>
+<template>
+  <LandingHeader />
+</template>
