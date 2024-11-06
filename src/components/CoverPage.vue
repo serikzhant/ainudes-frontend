@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0">
     <v-row no-gutters>
-      <v-col cols="12" sm="6">
+      <v-col cols="12" md="6">
         <div class="block-1">
           <h1 class="logo">AI Nudes</h1>
           <p class="description text-center">
@@ -19,7 +19,7 @@
         </div>
       </v-col>
 
-      <v-col cols="12" sm="6">
+      <v-col cols="12" md="6">
         <MainCarousel />
       </v-col>
     </v-row>
