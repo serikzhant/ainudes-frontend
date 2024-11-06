@@ -11,3 +11,20 @@
     font-family: 'Onest', sans-serif !important;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Onest', sans-serif !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    text-transform: none !important;
+}
+
+span {
+    font-family: 'Onest', sans-serif !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    text-transform: none !important;
+}
+
+/* .v-theme--myCustomLightTheme {
+    --v-hover-opacity: 0 !important;
+  } */
