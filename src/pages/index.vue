@@ -2,4 +2,5 @@
 
 <template>
   <LandingHeader />
+  <CoverPage />
 </template>

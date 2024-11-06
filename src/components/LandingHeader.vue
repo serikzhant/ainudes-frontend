@@ -2,7 +2,7 @@
   <v-app-bar height="80" elevation="0">
     <v-container fluid>
       <v-row>
-        <v-col class="logo" cols="4">
+        <v-col class="logo pl-4 pl-md-6" cols="4">
           <v-toolbar-title>
             <v-btn
               to="/"
@@ -15,14 +15,14 @@
             </v-btn>
           </v-toolbar-title>
         </v-col>
-        <v-col cols="4" class="d-flex align-center justify-center">
+        <v-col cols="4" class="d-none d-md-flex align-center justify-center">
           <v-btn>
             <span class="anchor-tag">Possibilities</span>
           </v-btn>
           <v-btn> <span class="anchor-tag">Instructions</span></v-btn>
           <v-btn> <span class="anchor-tag">Pricing</span></v-btn>
         </v-col>
-        <v-col cols="4" class="text-right pr-4">
+        <v-col cols="8" md="4" class="text-right pr-4">
           <v-btn
             class="mr-2"
             icon="mdi-theme-light-dark"
@@ -71,7 +71,6 @@ function toggleTheme() {
 .logo {
   display: flex;
   align-items: center;
-  padding-left: 35px;
 }
 
 .no-hover-opacity {
@@ -97,7 +96,6 @@ function toggleTheme() {
   transition: color 0.3s;
   font-size: 18px;
   letter-spacing: 0px;
-  font-weight: 700;
 }
 
 .v-theme--dark .login-btn {
@@ -110,6 +108,5 @@ function toggleTheme() {
   transition: color 0.3s;
   font-size: 18px;
   letter-spacing: 0px;
-  font-weight: 700;
 }
 </style>
