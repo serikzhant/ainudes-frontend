@@ -9,12 +9,12 @@
       :speed="1000"
     >
       <SwiperSlide v-for="(photo, index) in photos" :key="index">
-        <div class="slide-content" v-intersect="onIntersect">
+        <div class="slide-content">
           <div class="image-wrapper">
             <img :src="`/girls/${photo.top}`" class="image" />
             <div
               class="secimage-wrapper animated-padding"
-              :class="{ 'active-slide': realIndex === index && isIntersecting }"
+              :class="{ 'active-slide': realIndex === index }"
             >
               <img :src="`/girls/${photo.bottom}`" class="secimage" />
             </div>
@@ -61,25 +61,6 @@ const handleNext = () => {
     swiperInstance.value.slideNext();
   }
 };
-
-const isIntersecting = ref(false);
-
-const onIntersect = (isVisible) => {
-  isIntersecting.value = isVisible;
-};
-
-// Инициализация IntersectionObserver с передачей всех параметров
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry) => {
-    onIntersect(entry.isIntersecting);
-  });
-});
-
-// Наблюдение за элементом (например, после его рендеринга)
-const observeElement = ref(null);
-if (observeElement.value) {
-  observer.observe(observeElement.value);
-}
 </script>
 
 <style scoped>
