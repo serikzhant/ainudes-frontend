@@ -10,7 +10,8 @@ import '../styles/main.css'
 
 // Composables
 import { createVuetify } from 'vuetify'
-import { pink } from 'vuetify/util/colors'
+
+import { Ripple } from 'vuetify/directives';
 
 const lightTheme = {
   dark: false,
@@ -34,4 +35,7 @@ export default createVuetify({
       dark: darkTheme
     }
   },
+  directives: {
+    Ripple
+  }
 })
