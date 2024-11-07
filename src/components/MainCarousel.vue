@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel-container">
+  <div class="carousel-container" ref="carouselContainer">
     <Swiper
       ref="swiperRef"
       :loop="true"
@@ -13,8 +13,11 @@
           <div class="image-wrapper">
             <img :src="`/girls/${photo.top}`" class="image" />
             <div
-              class="secimage-wrapper animated-padding"
-              :class="{ 'active-slide': realIndex === index }"
+              class="secimage-wrapper"
+              :class="{
+                'animated-padding': isIntersecting && realIndex === index,
+                'active-slide': realIndex === index,
+              }"
             >
               <img :src="`/girls/${photo.bottom}`" class="secimage" />
             </div>
@@ -28,7 +31,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
 
@@ -61,6 +64,32 @@ const handleNext = () => {
     swiperInstance.value.slideNext();
   }
 };
+
+const isIntersecting = ref(false);
+const observer = ref(null);
+
+const observeCarousel = () => {
+  const carouselContainer = document.querySelector(".carousel-container");
+
+  observer.value = new IntersectionObserver(
+    ([entry]) => {
+      isIntersecting.value = entry.isIntersecting;
+    },
+    { threshold: 0.3 } // Adjust the threshold as needed
+  );
+
+  observer.value.observe(carouselContainer);
+};
+
+onMounted(() => {
+  observeCarousel();
+});
+
+onUnmounted(() => {
+  if (observer.value) {
+    observer.value.disconnect();
+  }
+});
 </script>
 
 <style scoped>
@@ -106,7 +135,7 @@ const handleNext = () => {
 }
 
 .secimage-wrapper.active-slide {
-  padding-left: 10%; /* Конечное значение для раскрытия */
+  padding-left: 90%; /* Конечное значение для раскрытия */
 }
 
 .secimage {
